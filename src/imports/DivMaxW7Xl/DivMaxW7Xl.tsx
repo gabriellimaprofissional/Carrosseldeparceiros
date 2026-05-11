@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import logoSulAmerica from "../SulAm_rica.png";
 import logoAmil from "../Amil.png";
 import logoBradesco from "../Logo_bradesco.png";
@@ -8,12 +8,13 @@ import logoPrevent from "../logo_prevent.png";
 import logoUnimed from "../logo_unimed.png";
 import logoAllianz from "../logo_allianz.png";
 
-function H2Text3Xl() {
+function SectionTitle() {
   return (
-    <div className="content-stretch flex flex-col items-center relative shrink-0 w-full" data-name="h2.text-3xl">
-      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[#1d2d5c] text-[36px] text-center whitespace-nowrap">
-        <p className="leading-[40px]">Seguradoras Parceiras</p>
-      </div>
+    <div className="w-full text-center mb-8">
+      <h2 className="text-[#1d2d5c] text-3xl font-bold leading-tight">
+        Seguradoras Parceiras
+      </h2>
+      <div className="w-16 h-1 bg-[#4a90e2] mx-auto mt-3 rounded-full"></div>
     </div>
   );
 }
@@ -30,61 +31,51 @@ function PartnersCarousel() {
     { name: "Allianz", logo: logoAllianz },
   ];
 
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const CARD_WIDTH = 220;
-  const GAP = 32;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const duplicatedPartners = [...partners, ...partners];
 
   useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    let scrollPosition = 0;
-
-    const scroll = () => {
-      scrollPosition += CARD_WIDTH + GAP;
-
-      if (scrollPosition >= (CARD_WIDTH + GAP) * partners.length) {
-        scrollPosition = 0;
-        container.style.transition = "none";
-        container.style.transform = `translateX(0px)`;
-
-        setTimeout(() => {
-          container.style.transition = "transform 2s ease-in-out";
-          scrollPosition = CARD_WIDTH + GAP;
-          container.style.transform = `translateX(-${scrollPosition}px)`;
-        }, 50);
-      } else {
-        container.style.transition = "transform 2s ease-in-out";
-        container.style.transform = `translateX(-${scrollPosition}px)`;
-      }
-    };
-
-    const interval = setInterval(scroll, 2000);
-    return () => clearInterval(interval);
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % partners.length);
+    }, 3000);
+    return () => clearInterval(timer);
   }, [partners.length]);
 
-  const duplicatedPartners = [...partners, ...partners, ...partners];
-
   return (
-    <div className="w-full h-[224px] flex items-center justify-center px-4">
-      <div
-        ref={containerRef}
-        className="w-full max-w-[960px] overflow-hidden"
-      >
-        <div ref={scrollRef} className="flex items-center" style={{ gap: `${GAP}px` }}>
+    <div className="w-full overflow-hidden py-4">
+      <div className="max-w-4xl mx-auto px-4">
+        <div 
+          className="flex transition-transform duration-1000 ease-in-out"
+          style={{ 
+            // No mobile move 100% (uma por vez), no desktop move 25% (4 por vez)
+            transform: `translateX(-${currentIndex * (window.innerWidth < 768 ? 100 : 25)}%)` 
+          }}
+        >
           {duplicatedPartners.map((partner, index) => (
             <div
               key={index}
-              className="flex items-center justify-center flex-shrink-0"
-              style={{ width: `${CARD_WIDTH}px` }}
+              // w-full garante que no mobile apareça apenas UMA imagem centralizada
+              className="w-full md:w-1/4 flex-shrink-0 flex items-center justify-center px-2"
             >
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className="max-h-[100px] w-full object-contain opacity-90 px-2"
-              />
+              <div className="flex items-center justify-center h-24 w-full">
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  // Removido grayscale e opacity para manter as cores originais
+                  className="max-h-16 md:max-h-20 w-auto object-contain"
+                />
+              </div>
             </div>
+          ))}
+        </div>
+
+        {/* Indicadores de bolinha para o celular (opcional, ajuda a guiar o usuário) */}
+        <div className="flex justify-center gap-2 mt-6 md:hidden">
+          {partners.map((_, i) => (
+            <div 
+              key={i}
+              className={`h-1.5 rounded-full transition-all ${currentIndex === i ? 'w-4 bg-[#4a90e2]' : 'w-1.5 bg-gray-300'}`}
+            ></div>
           ))}
         </div>
       </div>
@@ -92,11 +83,13 @@ function PartnersCarousel() {
   );
 }
 
-export default function DivMaxW7Xl() {
+export default function PartnersSection() {
   return (
-    <div className="content-stretch flex flex-col gap-[48px] items-center px-[32px] relative size-full" data-name="div.max-w-7xl">
-      <H2Text3Xl />
-      <PartnersCarousel />
-    </div>
+    <section className="bg-white py-12 border-t border-gray-100 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <SectionTitle />
+        <PartnersCarousel />
+      </div>
+    </section>
   );
 }
