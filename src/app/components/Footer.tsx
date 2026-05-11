@@ -1,23 +1,24 @@
-import { Phone, Mail, Code, MapPin } from "lucide-react";
+import { Phone, Mail, Code } from "lucide-react";
 
 export default function Footer() {
+  const logoUrl = "https://lh3.googleusercontent.com/d/13DHlRPaZabq5LXwdxQBsHchb70lbwozW";
+
   return (
     <footer className="bg-[#1a2847] text-white">
       {/* Linha de destaque superior */}
       <div className="border-t-4 border-[#ff6b35]">
         <div className="max-w-7xl mx-auto py-12 px-6">
-          {/* Grid Responsivo:
-            - grid-cols-1: No celular (um embaixo do outro)
-            - md:grid-cols-3: No desktop (lado a lado)
-          */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             
-            {/* Bloco 1: Identificação */}
-            <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold mb-4">
-                <span className="text-white">Brazil</span>
-                <span className="text-[#4a90e2]">Health</span>
-              </h3>
+            {/* Bloco 1: Identificação com Logo */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <div className="mb-4 bg-white p-2 rounded-lg inline-block">
+                <img 
+                  src={logoUrl} 
+                  alt="Brazil Health Logo" 
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
               <p className="text-sm font-medium mb-1">LMGE CORRETORA DE SEGUROS LTDA</p>
               <p className="text-gray-400 text-xs">CNPJ: 60.238.639/0001-31</p>
             </div>

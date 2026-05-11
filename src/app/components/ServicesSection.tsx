@@ -1,5 +1,5 @@
 export default function ServicesSection() {
-  // URLs convertidas para link direto (export=view)
+  // URLs configuradas para carregamento direto
   const imgPlanoSaude = "https://lh3.googleusercontent.com/d/1I6xwHVW53ErEX04hah2AoGdFFfOdYmEn";
   const imgPlanoOdonto = "https://lh3.googleusercontent.com/d/1D567KjYYap7-tB86XRfwobXW-28YqTMM";
   const imgSeguroVida = "https://lh3.googleusercontent.com/d/1PXO_DcbJcvw2_nOJtGtE8Kxt4_Zln-7g";
@@ -70,8 +70,8 @@ export default function ServicesSection() {
         </div>
       </section>
 
-      {/* SEÇÃO: PLANO PET (Fundo Cinza) */}
-      <section id="plano-pet" className="py-12 md:py-24 px-6 bg-gray-50">
+      {/* SEÇÃO: PLANO PET (Fundo Cinza) - AJUSTE DE ESPAÇAMENTO INFERIOR */}
+      <section id="plano-pet" className="pt-12 md:pt-24 pb-4 md:pb-6 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div className="flex justify-center">
             <img src={imgPlanoPet} alt="Plano Pet" className="rounded-2xl shadow-2xl max-w-full h-auto object-cover transform hover:scale-105 transition-all duration-500" />

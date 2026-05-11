@@ -1,5 +1,4 @@
 import { useState } from "react";
-import imgABF from "../../imports/image-6.png";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -8,6 +7,9 @@ export default function ContactSection() {
     telefone: "",
     mensagem: "",
   });
+
+  // Link adaptado no padrão googleusercontent
+  const imgABF = "https://lh3.googleusercontent.com/u/0/d/1opVLHERY9StprwfJXLb_N9eYelMFUdqq";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,7 +27,7 @@ export default function ContactSection() {
           </h2>
 
           <div className="space-y-8 mb-8">
-            <div className="bg-white p-4 rounded-lg shadow-sm md:bg-transparent md:p-0 md:shadow-none">
+            <div className="bg-white p-4 rounded-lg shadow-sm md:bg-transparent md:p-0 md:shadow-none border border-gray-100 md:border-none">
               <h3 className="font-bold text-[#1a2847] mb-1 uppercase text-xs tracking-widest">Razão Social</h3>
               <p className="text-gray-700 font-medium">LMGE CORRETORA DE SEGUROS LTDA</p>
               <p className="text-gray-500 text-sm">CNPJ: 60.238.639/0001-31</p>
@@ -44,11 +46,12 @@ export default function ContactSection() {
             </div>
           </div>
 
+          {/* Imagem ABF Associado - Estilizada */}
           <div className="mt-12 flex justify-center md:justify-start">
             <img 
               src={imgABF} 
               alt="ABF Associado" 
-              className="max-w-[180px] md:max-w-xs grayscale hover:grayscale-0 transition-all duration-500" 
+              className="max-w-[180px] md:max-w-xs" 
             />
           </div>
         </div>
@@ -72,7 +75,6 @@ export default function ContactSection() {
               />
             </div>
 
-            {/* Grid de inputs: 1 coluna no mobile, 2 no desktop */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-[#1a2847] text-sm font-semibold mb-2">E-mail</label>
@@ -118,7 +120,6 @@ export default function ContactSection() {
             </button>
           </form>
         </div>
-
       </div>
     </section>
   );
