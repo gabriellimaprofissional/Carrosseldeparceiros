@@ -6,93 +6,82 @@ import imgPlanoPet from "../../imports/image-4.png";
 export default function ServicesSection() {
   return (
     <div className="bg-white">
-      <section id="plano-saude" className="py-16 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-[#1a2847] mb-6">Plano de Saúde</h2>
-
-            <div className="space-y-4 text-[#1a2847]">
+      {/* SEÇÃO: PLANO DE SAÚDE */}
+      <section id="plano-saude" className="py-12 md:py-24 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+          <div className="order-2 md:order-1">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a2847] mb-6">Plano de Saúde</h2>
+            <div className="space-y-6 text-[#1a2847]">
               <div>
-                <h3 className="font-semibold mb-2">Planos Individuais e Familiar</h3>
-                <p className="text-gray-700">
-                  Trabalhamos com as melhores operadoras e oferecemos planos que atendam à necessidade de serviços para você e a família. Garantimos atendimento personalizado, cotação de planos, valores e propostas sem qualquer burocracia.
+                <h3 className="font-bold text-lg mb-2">Planos Individuais e Familiar</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Trabalhamos com as melhores operadoras e oferecemos planos que atendam à necessidade de serviços para você e a família.
                 </p>
               </div>
-
               <div>
-                <h3 className="font-semibold mb-2">PJ/PME Planos Coletivos Empresarial</h3>
-                <p className="text-gray-700">
-                  Fornecemos a solução completa em planos de saúde. Pessoas Jurídicas e Pequenas e Médias Empresas podem contar com nossos especialistas para encontrar o plano de saúde ideal garantindo aos seus colaboradores a boa saúde e satisfação.
+                <h3 className="font-bold text-lg mb-2">PJ/PME Planos Coletivos Empresarial</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Fornecemos a solução completa em planos de saúde para Pequenas e Médias Empresas.
                 </p>
               </div>
-
               <div>
-                <h3 className="font-semibold mb-2">Planos Coletivos por Adesão</h3>
-                <p className="text-gray-700">
-                  Caso esteja procurando um plano mais econômico e com mais cobertura esse e o melhor pois alem de custar mais barato também garantiremos um boa rede ótima para você e pra sua familia.
+                <h3 className="font-bold text-lg mb-2">Planos Coletivos por Adesão</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Uma opção econômica com ampla cobertura para você e sua família.
                 </p>
               </div>
             </div>
           </div>
-
-          <div className="flex justify-center">
-            <img src={imgPlanoSaude} alt="Plano de Saúde" className="rounded-lg shadow-lg max-w-md w-full object-cover" />
+          <div className="order-1 md:order-2 flex justify-center">
+            <img src={imgPlanoSaude} alt="Plano de Saúde" className="rounded-2xl shadow-2xl max-w-full h-auto object-cover transform hover:scale-105 transition-duration-500" />
           </div>
         </div>
       </section>
 
-      <section id="plano-odonto" className="py-16 px-6 bg-gray-50">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 gap-12 items-center">
+      {/* SEÇÃO: PLANO ODONTO (Fundo Cinza) */}
+      <section id="plano-odonto" className="py-12 md:py-24 px-6 bg-gray-50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+          {/* No mobile, a imagem vem primeiro por padrão, no desktop ela fica na esquerda */}
           <div className="flex justify-center">
-            <img src={imgPlanoOdonto} alt="Plano Odonto" className="rounded-lg shadow-lg max-w-md w-full object-cover" />
+            <img src={imgPlanoOdonto} alt="Plano Odonto" className="rounded-2xl shadow-2xl max-w-full h-auto object-cover transform hover:scale-105 transition-duration-500" />
           </div>
-
           <div>
-            <h2 className="text-3xl font-bold text-[#1a2847] mb-6">Plano Odonto</h2>
-
-            <div className="space-y-4 text-[#1a2847]">
-              <p className="text-gray-700">
-                Nós da Brazil Health temos os melhores planos de saúde que vão dar muito mais tranquilidade para você.
-              </p>
-
-              <p className="text-gray-700">
-                Oferecemos planos de Saúde Dental de todos os níveis e preços para atender a todos. Saúde dentária hoje é de extrema importância pois o plano Dental lhe dá a base e você e sua familia tem onde recorrer em qualquer momento que precise.
-              </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a2847] mb-6">Plano Odonto</h2>
+            <div className="space-y-4 text-gray-600 leading-relaxed">
+              <p>Temos os melhores planos odontológicos para garantir sua tranquilidade e um sorriso saudável.</p>
+              <p>A saúde dentária é essencial e nossos planos oferecem a base necessária para qualquer momento de emergência ou prevenção.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="seguro-vida" className="py-16 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-[#1a2847] mb-6">Seguro Vida</h2>
-
-            <p className="text-gray-700">
-              O seguro de vida é de extrema importância financeira para suas familiares em caso de morte ou incapacidade.
+      {/* SEÇÃO: SEGURO VIDA */}
+      <section id="seguro-vida" className="py-12 md:py-24 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+          <div className="order-2 md:order-1">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a2847] mb-6">Seguro Vida</h2>
+            <p className="text-gray-600 leading-relaxed text-lg">
+              O seguro de vida é de extrema importância para garantir a estabilidade financeira de seus familiares em momentos imprevistos ou incapacidade.
             </p>
           </div>
-
-          <div className="flex justify-center">
-            <img src={imgSeguroVida} alt="Seguro Vida" className="rounded-lg shadow-lg max-w-md w-full object-cover" />
+          <div className="order-1 md:order-2 flex justify-center">
+            <img src={imgSeguroVida} alt="Seguro Vida" className="rounded-2xl shadow-2xl max-w-full h-auto object-cover transform hover:scale-105 transition-duration-500" />
           </div>
         </div>
       </section>
 
-      <section id="plano-pet" className="py-16 px-6 bg-gray-50">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 gap-12 items-center">
+      {/* SEÇÃO: PLANO PET (Fundo Cinza) */}
+      <section id="plano-pet" className="py-12 md:py-24 px-6 bg-gray-50">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div className="flex justify-center">
-            <img src={imgPlanoPet} alt="Plano Pet" className="rounded-lg shadow-lg max-w-md w-full object-cover" />
+            <img src={imgPlanoPet} alt="Plano Pet" className="rounded-2xl shadow-2xl max-w-full h-auto object-cover transform hover:scale-105 transition-duration-500" />
           </div>
-
           <div>
-            <h2 className="text-3xl font-bold text-[#1a2847] mb-6">Plano Pet</h2>
-
-            <p className="text-gray-700">
-              O Plano Pet garante saúde para seu pet a qualquer momento com cobertura veterinária em todo território nacional. Com o plano seu Pet terá toda assistência de saúde.
-              <br /><br />
-              Proporcionando também segurança tanto para o seu pet que terá o melhor atendimento e para você que terá a responsabilidade médica veterinária sem custo por já possuir o plano de Saúde.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a2847] mb-6">Plano Pet</h2>
+            <div className="text-gray-600 leading-relaxed space-y-4">
+              <p>Saúde veterinária em todo o território nacional para o seu melhor amigo.</p>
+              <p>Segurança para o pet e economia para você, garantindo atendimento médico sem custos extras por procedimento coberto.</p>
+            </div>
           </div>
         </div>
       </section>
