@@ -4,7 +4,6 @@ export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
-    // Verifica se o usuário já aceitou os cookies anteriormente
     const consent = localStorage.getItem("cookieConsent");
     if (!consent) {
       setShowBanner(true);
@@ -16,6 +15,12 @@ export default function CookieBanner() {
     setShowBanner(false);
   };
 
+  const handleOpenPrivacy = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Dispara um evento global que qualquer componente pode ouvir
+    window.dispatchEvent(new Event("openPrivacyModal"));
+  };
+
   if (!showBanner) return null;
 
   return (
@@ -25,7 +30,13 @@ export default function CookieBanner() {
           <h4 className="text-[#1a2847] font-bold text-lg mb-1">Privacidade e Cookies 🍪</h4>
           <p className="text-gray-600 text-sm leading-relaxed">
             A Brazil Health utiliza cookies e outras tecnologias para melhorar sua experiência e 
-            personalizar conteúdos de acordo com nossa <a href="/privacidade" className="text-[#4a90e2] underline hover:text-[#1D2D5C]">Política de Privacidade</a>.
+            personalizar conteúdos de acordo com nossa{" "}
+            <button 
+              onClick={handleOpenPrivacy}
+              className="text-[#4a90e2] underline hover:text-[#1D2D5C] font-medium"
+            >
+              Política de Privacidade
+            </button>.
           </p>
         </div>
         <div className="flex gap-3 w-full md:w-auto">
