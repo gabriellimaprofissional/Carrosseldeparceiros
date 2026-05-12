@@ -1,6 +1,9 @@
 import { Phone, Facebook, Instagram, Youtube, Menu, X } from "lucide-react";
 import { useState } from "react";
 
+// 1. Importe o arquivo local (certifique-se de que o caminho está correto conforme sua pasta assets)
+import logoBrazilHealth from "../../imports/logo_brazil_health.png";
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -11,9 +14,6 @@ export default function Header() {
     { name: "Seguro Vida", href: "#seguro-vida" },
     { name: "Plano Pet", href: "#plano-pet" },
   ];
-
-  // Link direto para o logo oficial
-  const logoUrl = "https://lh3.googleusercontent.com/d/13DHlRPaZabq5LXwdxQBsHchb70lbwozW";
 
   return (
     <>
@@ -54,13 +54,13 @@ export default function Header() {
       <header className="bg-white/95 backdrop-blur-md shadow-md py-4 px-6 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
 
-          {/* Logo Substituído por Imagem */}
+          {/* Logo Local */}
           <div className="flex items-center">
             <img
-              src={logoUrl}
+              src={logoBrazilHealth} // 2. Usa a variável importada aqui
               alt="Brazil Health"
               className="h-10 md:h-14 w-auto object-contain"
-              onError={(e) => console.log("Erro ao carregar imagem")}
+              onError={(e) => console.log("Erro ao carregar imagem local")}
             />
           </div>
 

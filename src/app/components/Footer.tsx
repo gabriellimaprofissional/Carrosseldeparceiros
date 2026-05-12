@@ -1,7 +1,12 @@
-import { Phone, Mail, Code } from "lucide-react";
+import { useState } from "react";
+import { Phone, Mail, Code, ShieldCheck } from "lucide-react";
+import PrivacyModal from "./PrivacyModal";
+
+// Importação da imagem local conforme a estrutura do seu projeto
+import logoBrazilHealth from "../../imports/logo_brazil_health.png";
 
 export default function Footer() {
-  const logoUrl = "https://lh3.googleusercontent.com/d/13DHlRPaZabq5LXwdxQBsHchb70lbwozW";
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
 
   return (
     <footer className="bg-[#1a2847] text-white">
@@ -12,9 +17,10 @@ export default function Footer() {
             
             {/* Bloco 1: Identificação com Logo */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              {/* Mantendo o retângulo branco para destaque do logo */}
               <div className="mb-4 bg-white p-2 rounded-lg inline-block">
                 <img 
-                  src={logoUrl} 
+                  src={logoBrazilHealth} 
                   alt="Brazil Health Logo" 
                   className="h-10 w-auto object-contain"
                 />
@@ -54,15 +60,30 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Linha de Copyright */}
-          <div className="mt-12 pt-8 border-t border-white/10 text-center text-xs md:text-sm text-gray-400">
+          {/* Linha de Copyright e LGPD */}
+          <div className="mt-12 pt-8 border-t border-white/10 flex flex-col items-center gap-4 text-center text-xs md:text-sm text-gray-400">
             <p className="leading-relaxed">
               © 2026 LMGE Corretora de Seguros LTDA - Brazil Health. <br className="md:hidden" /> 
               Todos os direitos reservados.
             </p>
+            
+            {/* Botão da Política de Privacidade */}
+            <button 
+              onClick={() => setIsPrivacyOpen(true)}
+              className="flex items-center gap-2 hover:text-white transition-colors border border-white/20 px-4 py-1 rounded-full text-[10px] md:text-xs"
+            >
+              <ShieldCheck size={14} className="text-[#ff6b35]" />
+              Política de Privacidade (LGPD)
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Chamada do Modal */}
+      <PrivacyModal 
+        isOpen={isPrivacyOpen} 
+        onClose={() => setIsPrivacyOpen(false)} 
+      />
     </footer>
   );
 }

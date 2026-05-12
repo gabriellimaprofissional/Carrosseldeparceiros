@@ -1,10 +1,12 @@
-export default function ServicesSection() {
-  // URLs configuradas para carregamento direto
-  const imgPlanoSaude = "https://lh3.googleusercontent.com/d/1I6xwHVW53ErEX04hah2AoGdFFfOdYmEn";
-  const imgPlanoOdonto = "https://lh3.googleusercontent.com/d/1D567KjYYap7-tB86XRfwobXW-28YqTMM";
-  const imgSeguroVida = "https://lh3.googleusercontent.com/d/1PXO_DcbJcvw2_nOJtGtE8Kxt4_Zln-7g";
-  const imgPlanoPet = "https://lh3.googleusercontent.com/d/1X5HR4AivkPRAxA37dbmSn1iuyvbgMOEN";
+import React from "react";
 
+// Importação das imagens conforme os nomes exatos na sua pasta imports (visto na image_830c5e.png)
+import imgPlanoSaude from "../../imports/plano_de_saude_brazil_health.jpg";
+import imgPlanoOdonto from "../../imports/seguro_odonto_brazil_health.jpg";
+import imgSeguroVida from "../../imports/seguro_vida_brazil_health.jpg";
+import imgPlanoPet from "../../imports/seguro_pet_brazil_health.jpg";
+
+export default function ServicesSection() {
   return (
     <div className="bg-white">
       {/* SEÇÃO: PLANO DE SAÚDE */}
@@ -34,7 +36,11 @@ export default function ServicesSection() {
             </div>
           </div>
           <div className="order-1 md:order-2 flex justify-center">
-            <img src={imgPlanoSaude} alt="Plano de Saúde" className="rounded-2xl shadow-2xl max-w-full h-auto object-cover transform hover:scale-105 transition-all duration-500" />
+            <img 
+              src={imgPlanoSaude} 
+              alt="Plano de Saúde" 
+              className="rounded-2xl shadow-2xl max-w-full h-auto object-cover transform hover:scale-105 transition-all duration-500" 
+            />
           </div>
         </div>
       </section>
@@ -43,7 +49,11 @@ export default function ServicesSection() {
       <section id="plano-odonto" className="py-12 md:py-24 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div className="flex justify-center">
-            <img src={imgPlanoOdonto} alt="Plano Odonto" className="rounded-2xl shadow-2xl max-w-full h-auto object-cover transform hover:scale-105 transition-all duration-500" />
+            <img 
+              src={imgPlanoOdonto} 
+              alt="Plano Odonto" 
+              className="rounded-2xl shadow-2xl max-w-full h-auto object-cover transform hover:scale-105 transition-all duration-500" 
+            />
           </div>
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-[#1a2847] mb-6">Plano Odonto</h2>
@@ -65,16 +75,24 @@ export default function ServicesSection() {
             </p>
           </div>
           <div className="order-1 md:order-2 flex justify-center">
-            <img src={imgSeguroVida} alt="Seguro Vida" className="rounded-2xl shadow-2xl max-w-full h-auto object-cover transform hover:scale-105 transition-all duration-500" />
+            <img 
+              src={imgSeguroVida} 
+              alt="Seguro Vida" 
+              className="rounded-2xl shadow-2xl max-w-full h-auto object-cover transform hover:scale-105 transition-all duration-500" 
+            />
           </div>
         </div>
       </section>
 
-      {/* SEÇÃO: PLANO PET (Fundo Cinza) - AJUSTE DE ESPAÇAMENTO INFERIOR */}
+      {/* SEÇÃO: PLANO PET (Fundo Cinza) */}
       <section id="plano-pet" className="pt-12 md:pt-24 pb-4 md:pb-6 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div className="flex justify-center">
-            <img src={imgPlanoPet} alt="Plano Pet" className="rounded-2xl shadow-2xl max-w-full h-auto object-cover transform hover:scale-105 transition-all duration-500" />
+            <img 
+              src={imgPlanoPet} 
+              alt="Plano Pet" 
+              className="rounded-2xl shadow-2xl max-w-full h-auto object-cover transform hover:scale-105 transition-all duration-500" 
+            />
           </div>
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-[#1a2847] mb-6">Plano Pet</h2>
